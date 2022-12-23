@@ -1,0 +1,340 @@
+@keyframes selected{
+0%{
+
+    transform: scale(1);
+}
+
+50%{
+
+    transform: scale(1.2);
+}
+
+100%{
+
+    transform: scale(1);
+}
+}
+
+@keyframes idle_animation{
+    0%{
+        background-color: grey;
+    }
+    
+    50%{
+        background-color: #057bf9;
+    }
+
+    100%{
+        background-color: grey;
+    }
+    }
+
+@keyframes lose_animation{
+    0%{
+        left: 0px;
+    }
+    
+    50%{
+        left: 10px;
+    }
+
+    100%{
+        left: 10px;
+    }
+    }    
+
+@keyframes shine{
+
+    0% {
+      opacity: 0;
+      display: inline-block;
+      top: 50%;
+      left: 50%;
+    }
+    80% {
+      opacity: 1;
+      top: 25%;
+      left: 25%;
+    }
+    100% {
+      opacity: 0;
+      display: inline-block;
+      top: -100%;
+      left: -100%;
+    }
+  
+  }
+
+.lose{
+    animation: idle_animation 1s ease infinite;
+    animation-timing-function: steps(1, end);   
+}
+
+.idle{
+    animation: idle_animation 1s ease infinite;
+    animation-timing-function: steps(1, end);
+    animation-delay: 0.5s;
+}
+
+
+
+@font-face {
+    font-family: spaceAdventure;
+    src: url(Space\ Adventure.ttf);
+  }
+
+#game_container{
+    display: flex;
+    flex-direction: column;
+    height: 40em;
+    width: 60em;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 25px;
+    border: 4px solid;
+    background-color: #e0e0e4;
+
+}
+
+
+#title{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 0;
+    margin-left: 30px;
+    height: 100px;
+    
+}
+
+.title {
+    margin: 0;
+    font-size: 2em;
+    font-family: spaceAdventure;
+    color:#fba231; 
+
+}
+.middle{
+    display: flex;
+    flex-grow: 2;
+    justify-content: center;
+    align-items: center;
+
+}
+.middle_1{
+    position: relative;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+    flex-grow: 1;
+    width:100%;
+    height: 100%;
+    border: 3px solid grey;
+    border-left:0px;
+    border-right: 2px solid grey;
+
+
+}
+
+.middle_2{
+    position: relative;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+    border: 3px solid grey;
+    border-right:0px;
+    border-left: 2px solid grey;
+    
+}
+
+.image_1{  
+    position: absolute;
+    width: 60%;
+    height: 60%;
+    opacity: 0%;
+    filter: grayscale(100%);
+    box-shadow: 0px 0px 0px red;
+    
+}
+
+.image_2{  
+    position: absolute;
+    width: 60%;
+    height: 60%;
+    opacity: 0%;
+    filter: grayscale(100%);
+    box-shadow: 0px 0px 0px red;
+    
+}
+
+.hidden{
+    transition-property: opacity, left;
+    transition-duration: 0.5s;
+    opacity: 0%;
+    left: 20px;
+}
+
+.hidden2{
+    transition-property: opacity, right;
+    transition-duration: 0.5s;
+    opacity: 0%;
+    right: 20px;
+}
+
+.revealed{
+    transition-property: opacity, left;
+    transition-duration: 0.5s;
+    opacity: 100%;
+    left: 110px;
+}
+
+.selected{
+    animation-name: selected;
+    animation-duration: 0.5s;
+    opacity: 100%;
+    left: 110px;
+    filter: grayscale(0%);
+}
+
+.selected2{
+    opacity: 100%;
+    right: 110px;
+    filter: grayscale(0%);
+}
+
+.result{
+    width: 20em;
+    justify-content: space-between;
+    display: flex;
+    z-index: 2;
+    position: relative;
+
+}
+
+.results{
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background-color: grey;
+    display: flex;
+}
+
+
+.bottom{
+    display: flex;
+    height: 120px;
+}
+.bottom_0{
+    display:flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width:10em;
+    font-family: spaceAdventure;
+    margin-left: 20px;
+    justify-content: center;
+    
+}
+
+.bottom_1{
+    display: flex;
+    flex-grow: 2;
+    justify-content:stretch;
+    align-items: center;
+    gap: 10px;
+    
+}
+.bottom_1 button{
+    flex-grow: 1;
+        width: 5px;
+        height: 70px;
+}
+
+.bottom_2{
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+    align-items: center;
+}
+.bottom_2 button{
+    width: 90px;
+    height: 50px;
+}
+
+.border{
+    border: solid 2px;
+}
+
+#popup{
+    display: flex;
+    flex-direction: column;
+    font-size: 50px;
+    font-family: spaceAdventure;
+    
+}
+#matchEnd{
+    color: #fba231;
+}
+
+#popup_button{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    font-family: spaceadventure;
+}
+
+#popup_button:hover{
+transition-property: background-color;
+background-color: rgb(207, 207, 207);
+
+}
+
+.popup_revealed{
+    transition-property: opacity;
+    transition-duration: 0.5s;
+    position: absolute;
+    display: flex;
+    margin-left: 0%;
+    margin-right: 0%;
+    background-color: black;
+    width: 970px;
+    height: 420px;
+    z-index: 1;
+    opacity: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup_hidden{
+    transition-property: opacity;
+    transition-duration: 0.5s;
+    opacity: 0%;
+
+
+    position: absolute;
+    display: flex;
+    margin-left: 0%;
+    margin-right: 0%;
+    background-color: black;
+    width: 970px;
+    height: 420px;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+#background{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -4;
+    top:0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+
